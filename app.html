@@ -3,106 +3,11 @@
   <head>
     {{ HEAD }}
 
-    <style>
-      #_preloader {
-        z-index: 1000;
-        position: fixed;
-        top: 0;
-        left: 0;
-        display: block !important;
-        width: 101vw;
-        height: 101vh;
-        background-color: white;
-        transition: all 1s cubic-bezier(0.260, 0.860, 0.440, 0.985);
-      }
-
-        .is-hidden {
-          opacity: 0;
-          pointer-events: none;
-        }
-
-      #_preloader-container {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        display: flex;
-        width: 500px;
-        height: 30px;
-        overflow: hidden;
-        background-color: black;
-        color: white;
-        animation: preloaderFadeIn 1s 1s cubic-bezier(0.260, 0.860, 0.440, 0.985) both;
-      }
-
-      @media screen and (max-width: 599px) {
-        #_preloader-container {
-          width: 80%;
-        }
-      }
-
-      #_preloader-texts {
-        position: relative;
-        padding-top: 5px;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        animation: preloaderMarquee 20s linear none infinite;
-      }
-
-      #_preloader-text {
-        white-space: nowrap;
-        font-family: 'effra_trialregular';
-        font-weight: normal;
-        font-style: normal;
-        font-size: 14px;
-        letter-spacing: .35px;
-        /* width-between-property 'font-size' 1001 12 1440 14 false false;
-        width-between-property 'font-size' 1441 14 1920 16 false true;
-        width-between-property 'letter-spacing' 600 .42 1000 .35 true true;
-        width-between-property 'letter-spacing' 1441 .35 1920 .4 false true; */
-        transform: translate3d(0,0,0);
-      }
-
-      @keyframes preloaderMarquee {
-        to { transform: translateX(-100%); }
-      }
-
-      @keyframes preloaderFadeIn {
-        from {
-          transform: translate(-50%, 100%);
-          opacity: 0;
-        }
-        to {
-          transform: translate(-50%, -50%);
-          opacity: 1;
-        }
-      }
-    </style>
   </head>
   <body {{ BODY_ATTRS }}>
     <div id="fb-root"></div>
 
-
-    <div id="_preloader">
-      <div id="_preloader-container">
-        <div id ="_preloader-texts">
-          <div id="_preloader-text">
-            Ветивер, Лимон, Бергамот (300мл)&nbsp;|&nbsp;МОСС (300мл)&nbsp;|&nbsp;Ванильный Бленд (300мл)&nbsp;|&nbsp;Бергамот, Нероли, Апельсин (300мл)&nbsp;|&nbsp;
-          </div>
-        </div>
-        <div id ="_preloader-texts">
-          <div id="_preloader-text">
-            Ветивер, Лимон, Бергамот (300мл)&nbsp;|&nbsp;МОСС (300мл)&nbsp;|&nbsp;Ванильный Бленд (300мл)&nbsp;|&nbsp;Бергамот, Нероли, Апельсин (300мл)&nbsp;|&nbsp;
-          </div>
-        </div>
-      </div>
-
-    </div>
-
     {{ APP }}
     <img src="/images/sprite.svg" style="display: none;">
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v3.3"></script>
-    <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>
   </body>
 </html>

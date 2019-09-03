@@ -13,7 +13,6 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
   css: [
-    'swiper/dist/css/swiper.css',
     '@/styles/app.styl',
   ],
   loading: { color: '#fff' },
