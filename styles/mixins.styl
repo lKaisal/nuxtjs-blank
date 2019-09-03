@@ -1,0 +1,83 @@
+@import './variables'
+
+debug()
+  background-color rgba(red, .33) !important
+
+outline()
+  outline 3px solid rgba(red, .33) !important
+
+ghost()
+  content ''
+  position absolute
+  top 0
+  right 0
+  bottom 0
+  left 0
+
+transition($property = transform\, opacity)
+  transition: $property $tDurationDeafault $tTimingFunctionDefault;
+
+hover()
+  &:hover
+    html.desktop &
+      {block}
+
+hoverStyle()
+  opacity .75
+
+jsVoaStart()
+  opacity 0
+  transform translateY(30px)
+
+squareSize()
+  squareWidth()
+  squareHeight()
+
+squareWidth()
+  width-between-property 'width' 1001 50 1440 55 true true
+
+squareHeight()
+  width-between-property 'height' 1001 50 1440 55 true true
+
+mediumSquareSize()
+  mediumSquareWidth()
+  mediumSquareHeight()
+
+mediumSquareWidth()
+  width-between-property 'width' 1001 40 1440 45 true true
+
+mediumSquareHeight()
+  width-between-property 'height' 1001 40 1440 45 true true
+
+smallSquareSize()
+  smallSquareWidth()
+  smallSquareHeight()
+
+smallSquareWidth()
+  width 25px
+
+smallSquareHeight()
+  height 25px
+
+trippleSquareWidth()
+  width-between-property 'width' 1001 150 1440 165 true true
+
+fontReg()
+  font-family 'effra_trialregular'
+  font-weight normal
+  font-style normal
+
+fontLight()
+  font-family 'effra_triallight'
+  font-weight normal
+  font-style normal
+
+fontBold()
+  font-family 'effra_trialbold'
+  font-weight normal
+  font-style normal
+
+fontMedium()
+  font-family 'effra_trialmedium'
+  font-weight normal
+  font-style normal
