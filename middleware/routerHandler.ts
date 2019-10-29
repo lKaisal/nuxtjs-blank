@@ -1,9 +1,6 @@
-export default async context => {
-  const { store, from } = context
-  store.dispatch('ui/hideAllOverlayElements')
-  if (from) store.commit('ui/setFromPage', { name: from.name, params: from.params })
+import { Context } from '@nuxt/vue-app'
 
-  const { route } = context
-  const isPageProduct = route.name.includes('product')
-  if (isPageProduct) store.commit('ui/setPanelCartScrolledEnough', false)
+export default context => {
+  const { store } = context as Context
+  store.dispatch('ui/hideAllOverlayElements')
 }

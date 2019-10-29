@@ -16,7 +16,7 @@ export default (
 
     el.onloadedmetadata = () => {
       document.body.removeChild(el)
-      resolve(el.duration)
+      resolve()
     }
 
     document.body.appendChild(el)

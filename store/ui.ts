@@ -1,11 +1,37 @@
 import { ViewportInfo } from '@/plugins/viewportSizeHandler'
+import { GetterTree, MutationTree, ActionTree } from 'vuex'
 
 const grid = require('@/styles/grid-config.json')
 
 // Отдельный массив чисел-брейкпоинтов, отсортированный по возрастанию
 grid.numbers = Object.keys(grid.breakpoints).map(key => grid.breakpoints[key]).sort((a: any, b: any) => a - b)
 
-export const state = () => ({
+export type UiState = {
+  windowWidth: ViewportInfo['windowWidth']
+  windowHeight: ViewportInfo['windowHeight']
+  documentWidth: ViewportInfo['documentWidth']
+  documentHeight: ViewportInfo['documentHeight']
+  scrollbarWidth: ViewportInfo['scrollbarWidth']
+  breakpoint: ViewportInfo['breakpoint']
+  grid: {
+    columns: number,
+    gutters: number,
+    offsets: number
+  },
+  isIe: boolean,
+  isEdge: boolean,
+  deviceType: string,
+  browser: {
+    name: string
+  },
+  deviceOS: string,
+  pixelRatio: number,
+  locale: string,
+  menuIsOpen: boolean
+}
+
+
+export const state = (): UiState  => ({
   windowWidth: null as ViewportInfo['windowWidth'],
   windowHeight: null as ViewportInfo['windowHeight'],
   documentWidth: null as ViewportInfo['documentWidth'],
@@ -17,12 +43,13 @@ export const state = () => ({
   isEdge: null,
   deviceType: null,
   browser: null,
+  deviceOS: null,
+  pixelRatio: null,
   locale: null,
   menuIsOpen: null,
-  scrollY: null as number,
 })
 
-export const getters = {
+export const getters: GetterTree<UiState, UiState> = {
   screenSize({ windowHeight, windowWidth, documentWidth, documentHeight }) { return windowHeight + windowWidth + documentWidth + documentHeight },
   columns(state) { return state.grid.columns[state.breakpoint] },
   gutterWidth(state) { return state.grid.gutters[state.breakpoint] },
@@ -40,7 +67,7 @@ export const getters = {
   isTouchDevice(state) { return state.deviceType !== 'desktop' },
 }
 
-export const mutations = {
+export const mutations: MutationTree<UiState> = {
   updateViewportInfo(state, payload: ViewportInfo) {
     state.windowWidth = payload.windowWidth
     state.windowHeight = payload.windowHeight
@@ -58,7 +85,7 @@ export const mutations = {
   // setLocale(state, payload: string) { state.locale = payload },
 }
 
-export const actions = {
+export const actions: ActionTree<UiState, UiState> = {
   hideAllOverlayElements({ commit }) {
     // commit('setMenuIsOpen', false)
   }
