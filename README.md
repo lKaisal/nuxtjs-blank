@@ -35,3 +35,4 @@ $ yarn prod
 $ yarn run generate
 ```
 # nuxtjs-blank
+# malina-nuxt
